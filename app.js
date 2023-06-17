@@ -1,5 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+
+dotenv.config()
 
 const mentorRoutes = require('./routes/mentor')
 const studentRoutes = require('./routes/student');
@@ -7,7 +10,7 @@ const studentRoutes = require('./routes/student');
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost/mentorship', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
   })
