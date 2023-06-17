@@ -20,6 +20,10 @@ mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTop
 
 app.use(express.json());
 
+app.get('/',(req,res)=>{
+  res.send("HI WORLD................................................")
+})
+
 // Routes
 app.use('/mentors', mentorRoutes);
 app.use('/students', studentRoutes);
