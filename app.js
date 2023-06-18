@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-
+const cors = require('cors')
 dotenv.config()
 
 const mentorRoutes = require('./routes/mentor')
@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTop
   });
 
 app.use(express.json());
-
+app.use(cors())
 app.get('/',(req,res)=>{
   res.send("HI WORLD................................................")
 })
